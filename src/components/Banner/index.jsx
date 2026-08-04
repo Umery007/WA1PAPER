@@ -33,21 +33,21 @@ export default function Banner() {
         </TitleRed>
 
         <Description>
-          Crie quantos wallpapers quiser com <strong>créditos infinitos</strong> todos os dias.
+          Gere wallpapers incríveis com <strong>créditos infinitos</strong> e baixe tudo sem preocupações.
         </Description>
       </Left>
 
       <Benefits>
-        <Benefit>🖼️ 4K Qualidade Máxima</Benefit>
-        <Benefit>⚡ Geração Rápida</Benefit>
-        <Benefit>∞ Créditos Infinitos</Benefit>
-        <Benefit>⬇️ Downloads Ilimitados</Benefit>
+        <Benefit>🖼️ Qualidade 4K</Benefit>
+        <Benefit>⚡ Geração instantânea</Benefit>
+        <Benefit>∞ Créditos infinitos</Benefit>
+        <Benefit>⬇️ Downloads ilimitados</Benefit>
       </Benefits>
 
       <Buttons>
         <VipButton>🏆 Seja VIP</VipButton>
 
-        <MoreButton>Saiba Mais</MoreButton>
+        <MoreButton>Saiba mais</MoreButton>
 
         <Text>
           Desbloqueie o poder completo da IA
@@ -56,8 +56,8 @@ export default function Banner() {
 
       <ImageArea>
         <img
-          src="/banner.jpg"
-          alt="Wallpaper"
+          src="/banner.svg"
+          alt="Ilustração do banner"
         />
       </ImageArea>
     </BannerContainer>
