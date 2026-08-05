@@ -1,157 +1,288 @@
 import styled from "styled-components";
 
+
+
 export const BannerContainer = styled.section`
-  width: min(95%, 1400px);
-  margin: 28px auto 0;
-  padding: 28px;
-  border-radius: 28px;
+
+  width: min(1250px, 95%);
+
+  min-height: 365px;
+
+  margin: 40px auto;
+
   background:
-    radial-gradient(circle at top left, rgba(255, 78, 78, 0.18), transparent 30%),
-    linear-gradient(135deg, #0c0c0c 0%, #050505 100%);
-  border: 1px solid rgba(255, 77, 77, 0.2);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+
+    radial-gradient(circle at left, rgba(255,0,0,.18), transparent 30%),
+
+    #050505;
+
   display: grid;
-  grid-template-columns: 1.15fr 0.9fr 0.9fr 1fr;
-  gap: 20px;
+
+  grid-template-columns: 280px 180px 220px 1fr;
+
+  gap: 25px;
+
   align-items: center;
 
-  @media (max-width: 1100px) {
-    grid-template-columns: 1fr 1fr;
+  padding: 35px;
+
+  border-radius: 19px;
+
+  border: 1px solid rgba(255,255,255,.08);
+
+  box-shadow: 0 0 40px rgba(255,0,0,.15);
+
+
+
+  @media(max-width:1100px){
+
+    height: auto;
+
+    grid-template-columns: 1fr;
+
   }
 
-  @media (max-width: 700px) {
-    grid-template-columns: 1fr;
-    padding: 20px;
-  }
 `;
+
+
 
 export const Left = styled.div`
+
   display: flex;
+
   flex-direction: column;
+
   justify-content: center;
+
 `;
+
+
 
 export const Vip = styled.div`
-  width: fit-content;
-  padding: 7px 14px;
-  border: 1px solid #ff4d4d;
-  border-radius: 999px;
-  color: #ff6b6b;
-  font-size: 14px;
+
+  width: max-content;
+
+  padding: 8px 18px;
+
+  border: 2px solid #ff1f1f;
+
+  border-radius: 30px;
+
+  color: #ff3030;
+
+  font-size: 15px;
+
   font-weight: 700;
-  letter-spacing: 0.08em;
+
+  margin-bottom: 30px;
+
   text-transform: uppercase;
-  margin-bottom: 16px;
+
 `;
+
+
 
 export const Title = styled.h1`
-  color: #f8f8f8;
-  font-size: clamp(28px, 3.2vw, 40px);
-  font-weight: 700;
-  line-height: 1.08;
+
   margin: 0;
+
+  color: white;
+
+  font-size: 45px;
+
+  line-height: 1.1;
+
+  font-weight: 600;
+
 `;
 
-export const TitleRed = styled.h1`
-  margin: 6px 0 0;
-  color: #ff5a5a;
-  font-size: clamp(28px, 3.2vw, 40px);
-  font-weight: 700;
-  line-height: 1.08;
+
+
+export const TitleRed = styled.span`
+
+  color: #ff4d55;
+
 `;
+
+
 
 export const Description = styled.p`
-  margin-top: 16px;
-  color: #d6d6d6;
+
+  margin-top: 25px;
+
+  color: #cfcfcf;
+
   font-size: 16px;
-  line-height: 1.6;
-  max-width: 480px;
+
+  line-height: 1.5;
+
+  max-width: 260px;
+
+
 
   strong {
-    color: #ff6b6b;
+
+    color: #ff4d55;
+
   }
+
 `;
+
+
 
 export const Benefits = styled.div`
+
+  min-height: 310px;
+
   display: flex;
+
   flex-direction: column;
+
   justify-content: center;
-  gap: 12px;
-  padding: 18px;
-  border: 1px solid rgba(255, 77, 77, 0.28);
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.03);
+
+  gap: 22px;
+
+  border: 3px solid #ff1515;
+  border-top-right-radius: 22px;
+  border-bottom-left-radius: 22px;
+  padding: 40px 20px;
+  box-sizing: border-box;
+
 `;
+
+
 
 export const Benefit = styled.div`
-  color: #f1f1f1;
-  font-size: 15px;
-  line-height: 1.4;
+
   display: flex;
+
   align-items: center;
-  gap: 8px;
-`;
 
-export const Buttons = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 12px;
-`;
+  gap: 15px;
 
-export const VipButton = styled.button`
-  height: 48px;
-  border: none;
-  border-radius: 14px;
-  background: linear-gradient(135deg, #ff4d4d, #d91414);
-  color: white;
-  font-size: 16px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: 0.3s ease;
-  box-shadow: 0 8px 20px rgba(217, 20, 20, 0.28);
 
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 24px rgba(217, 20, 20, 0.35);
-  }
-`;
-
-export const MoreButton = styled.button`
-  height: 48px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.06);
-  color: white;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.3s ease;
-
-  &:hover {
-    background: rgba(255, 255, 255, 0.12);
-    transform: translateY(-2px);
-  }
-`;
-
-export const Text = styled.p`
-  color: #cfcfcf;
-  text-align: center;
-  font-size: 14px;
-  line-height: 1.5;
-  margin: 0;
-`;
-
-export const ImageArea = styled.div`
-  overflow: hidden;
-  border-radius: 24px;
-  border: 1px solid rgba(255, 77, 77, 0.3);
-  box-shadow: 0 14px 40px rgba(255, 39, 39, 0.15);
 
   img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+
+    width: 55px;
+
+    height: 55px;
+
+    object-fit: contain;
+
   }
+
+
+
+  span {
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    line-height: 1.2;
+
+  }
+
 `;
+
+
+
+export const Buttons = styled.div`
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  text-align: center;
+
+  gap: 15px;
+
+`;
+
+
+
+export const ActionButton = styled.button`
+
+  width: 210px;
+
+  height: 65px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background: ${props =>
+
+    props.primary
+
+    ? "linear-gradient(90deg,#ff0000,#ff3434)"
+
+    : "#111"
+
+  };
+
+  color: white;
+
+  font-size: 25px;
+
+  font-weight: 500;
+
+  cursor: pointer;
+
+  box-shadow: ${props =>
+
+    props.primary
+
+    ? "0 0 25px rgba(255,0,0,.35)"
+
+    : "none"
+
+  };
+
+  transition: .3s;
+
+
+
+  &:hover {
+
+    transform: translateY(-3px);
+
+  }
+
+`;
+
+
+
+export const ImageArea = styled.div`
+
+  width: 100%;
+
+  height: 380px;
+
+  border-radius: 22px;
+   border-bottom-left-radius: 0px;
+  overflow: hidden;
+
+  border: 3px solid #ff2020;
+
+  box-shadow: 0 0 30px rgba(255,0,0,.35);
+
+
+
+  img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+  }
+
+`; 
+
