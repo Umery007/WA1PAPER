@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.header`
     width:100%;
-    max-width: 1400px;
+    max-width: 1800px;
     margin: 0 auto;
     padding: 18px 48px;
     box-sizing: border-box;

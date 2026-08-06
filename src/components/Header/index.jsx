@@ -73,7 +73,11 @@ export default function Header() {
           <Category>Astral</Category>
           <Category>HD</Category>
           <Category>Filmes</Category>
-          
+          <Category>Magia</Category>
+          <Category>Y2K</Category>
+          <Category>Oceanos</Category>
+          <Category>Japão</Category>
+          <Category>8K</Category>
         </Categories>
 
       </SearchArea>
