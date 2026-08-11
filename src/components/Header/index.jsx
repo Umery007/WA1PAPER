@@ -16,7 +16,7 @@ import {
   Category,
 } from "./styles";
 
-export default function Header() {
+export default function Header({ onOpenFerramentas }) {
   return (
     <Container>
 
@@ -38,7 +38,7 @@ export default function Header() {
             Notificações
           </a>
 
-          <button>
+          <button type="button" onClick={onOpenFerramentas}>
             <FiUser />
           </button>
 

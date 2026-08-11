@@ -63,17 +63,28 @@ export function Card({ image, tags = [], liked = false, onDownload }) {
 }
 
 export default function Cards() {
-  const examples = [
-    { tags: ["Desktop", "4K"], liked: false },
-    { tags: ["Mobile", "Anime"], liked: true },
-    { tags: ["Pixel Art"], liked: false },
-    { tags: ["Nature"], liked: false },
+  const cards = [
+    { id: 1, tags: ["Desktop", "4K"], liked: false, image: sample },
+    { id: 2, tags: ["Mobile", "Anime"], liked: true, image: sample },
+    { id: 3, tags: ["Pixel Art"], liked: false, image: sample },
+    { id: 4, tags: ["Nature"], liked: false, image: sample },
+    { id: 5, tags: ["Minimal", "Dark"], liked: false, image: sample },
+    { id: 6, tags: ["Travel", "Aesthetic"], liked: true, image: sample },
+    { id: 7, tags: ["Abstract", "3D"], liked: false, image: sample },
+    { id: 8, tags: ["Studio", "UI"], liked: false, image: sample },
+    { id: 8, tags: ["Studio", "UI"], liked: false, image: sample },
   ];
 
   return (
     <CardsWrapper>
-      {examples.map((ex, i) => (
-        <Card key={i} image={sample} tags={ex.tags} liked={ex.liked} onDownload={() => {}} />
+      {cards.map((card) => (
+        <Card
+          key={card.id}
+          image={card.image}
+          tags={card.tags}
+          liked={card.liked}
+          onDownload={() => {}}
+        />
       ))}
     </CardsWrapper>
   );
