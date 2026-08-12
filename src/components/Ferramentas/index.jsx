@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import {
   Overlay,
   Modal,
@@ -12,6 +13,13 @@ import {
 } from "./styles";
 
 export function Ferramentas({ onClose }) {
+  const navigate = useNavigate();
+
+  function handleCreateAccount() {
+    onClose();
+    navigate("/criar-conta");
+  }
+
   return (
     <Overlay>
       <Modal>
@@ -32,7 +40,7 @@ export function Ferramentas({ onClose }) {
             <CardContent>
               <ToolButton>Alterar Senha</ToolButton>
               <ToolButton>Sair da conta</ToolButton>
-              <ToolButton>Criar conta</ToolButton>
+              <ToolButton onClick={handleCreateAccount}>Criar conta</ToolButton>
               <ToolButton>Perfil</ToolButton>
             </CardContent>
           </Card>
