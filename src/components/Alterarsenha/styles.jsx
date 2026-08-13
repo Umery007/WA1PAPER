@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Wrapper = styled.section`
   width: 100%;
   min-height: 100vh;
+
   padding: 30px 20px 50px;
 
   display: flex;
@@ -189,6 +190,27 @@ export const Group218 = styled.div`
 
   @media (max-width: 480px) {
     gap: 12px;
+  }
+`;
+
+export const PasswordInfo = styled.p`
+  width: 100%;
+
+  margin: 0 0 2px;
+
+  text-align: center;
+
+  font-family: "Inria Serif", serif;
+  font-style: normal;
+  font-weight: 700;
+
+  font-size: 20px;
+  line-height: 1.3;
+
+  color: #fffbfb;
+
+  @media (max-width: 480px) {
+    font-size: 0.8rem;
   }
 `;
 

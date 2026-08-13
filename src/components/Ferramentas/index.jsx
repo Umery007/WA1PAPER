@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+
 import {
   Overlay,
   Modal,
@@ -20,9 +21,15 @@ export function Ferramentas({ onClose }) {
     navigate("/criar-conta");
   }
 
+  function handleAlterarSenha() {
+    onClose();
+    navigate("/alterar-senha");
+  }
+
   return (
     <Overlay>
       <Modal>
+
         <Header>
           <Title>Ferramentas do Usuário</Title>
 
@@ -38,31 +45,57 @@ export function Ferramentas({ onClose }) {
             <CardTitle>Conta</CardTitle>
 
             <CardContent>
-              <ToolButton>Alterar Senha</ToolButton>
-              <ToolButton>Sair da conta</ToolButton>
-              <ToolButton onClick={handleCreateAccount}>Criar conta</ToolButton>
-              <ToolButton>Perfil</ToolButton>
+              <ToolButton onClick={handleAlterarSenha}>
+                 Cadastro
+              </ToolButton>
+
+              <ToolButton>
+                Sair da conta
+              </ToolButton>
+
+              <ToolButton onClick={handleCreateAccount}>
+                Criar conta
+              </ToolButton>
+
+              <ToolButton>
+                Perfil
+              </ToolButton>
             </CardContent>
           </Card>
+
 
           {/* WALLPAPERS */}
           <Card>
             <CardTitle>Wallpapers</CardTitle>
 
             <CardContent>
-              <ToolButton>Baixados</ToolButton>
-              <ToolButton>Favoritos</ToolButton>
-              <ToolButton>Criados</ToolButton>
-              <ToolButton>Pastas</ToolButton>
+              <ToolButton>
+                Baixados
+              </ToolButton>
+
+              <ToolButton>
+                Favoritos
+              </ToolButton>
+
+              <ToolButton>
+                Criados
+              </ToolButton>
+
+              <ToolButton>
+                Pastas
+              </ToolButton>
             </CardContent>
           </Card>
+
 
           {/* SEGURANÇA */}
           <Card>
             <CardTitle>Segurança</CardTitle>
 
             <CardContent>
-              <ToolButton>Alterar senha</ToolButton>
+              <ToolButton onClick={handleAlterarSenha}>
+                Alterar senha
+              </ToolButton>
 
               <ToolButton>
                 Histórico de login
@@ -73,6 +106,7 @@ export function Ferramentas({ onClose }) {
               </ToolButton>
             </CardContent>
           </Card>
+
 
           {/* PREMIUM */}
           <Card>
@@ -94,6 +128,7 @@ export function Ferramentas({ onClose }) {
           </Card>
 
         </CardsContainer>
+
       </Modal>
     </Overlay>
   );
