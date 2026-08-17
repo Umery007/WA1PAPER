@@ -26,6 +26,11 @@ export function Ferramentas({ onClose }) {
     navigate("/alterar-senha");
   }
 
+  function handleCadastrar() {
+    onClose();
+    navigate("/cadastro");
+  }
+
   return (
     <Overlay>
       <Modal>
@@ -45,7 +50,7 @@ export function Ferramentas({ onClose }) {
             <CardTitle>Conta</CardTitle>
 
             <CardContent>
-              <ToolButton onClick={handleAlterarSenha}>
+              <ToolButton onClick={handleCadastrar}>
                  Cadastro
               </ToolButton>
 

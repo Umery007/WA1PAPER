@@ -16,7 +16,7 @@ import {
   ButtonText,
 } from "./styles";
 
-export default function Criarconta() {
+export default function Cadastrar() {
   return (
     <Wrapper
       style={{
@@ -27,7 +27,7 @@ export default function Criarconta() {
     >
       <Card>
         <TopBar>
-          <TopTitle>Criar</TopTitle>
+          <TopTitle>Cadastrar</TopTitle>
           <CloseButton aria-label="Fechar">
             <CloseIcon />
           </CloseButton>
