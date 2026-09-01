@@ -1,9 +1,16 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, Pencil, Maximize2, Minimize2, Folder } from 'lucide-react';
+import imagemPadraoBanner from '../../assets/perfil/pages.png';
 import * as S from './styles';
 
-export default function Perfil({ imagemBanner, imagemAvatar, dadosPastas = [] }) {
+export default function Perfil({
+  imagemBanner = imagemPadraoBanner,
+  imagemAvatar,
+  dadosPastas = []
+}) {
   const [abaAtiva, setAbaAtiva] = useState('criados');
+  const navigate = useNavigate();
 
   return (
     <S.Container>
@@ -14,7 +21,7 @@ export default function Perfil({ imagemBanner, imagemAvatar, dadosPastas = [] })
           <S.BannerPadrao />
         )}
 
-        <S.BotaoVoltar aria-label="Voltar">
+        <S.BotaoVoltar aria-label="Voltar" onClick={() => navigate(-1)}>
           <ArrowLeft size={20} color="#fff" />
         </S.BotaoVoltar>
 
@@ -55,8 +62,6 @@ export default function Perfil({ imagemBanner, imagemAvatar, dadosPastas = [] })
       </S.SecaoBanner>
 
       <S.BarraNavegacao>
-        <div style={{ flex: 1 }} />
-
         <S.ContainerAbas>
           <S.BotaoAba 
             $ativo={abaAtiva === 'criados'} 
@@ -68,7 +73,7 @@ export default function Perfil({ imagemBanner, imagemAvatar, dadosPastas = [] })
             $ativo={abaAtiva === 'pastas'} 
             onClick={() => setAbaAtiva('pastas')}
           >
-            Pastas
+            Salvos
           </S.BotaoAba>
         </S.ContainerAbas>
 
@@ -85,7 +90,12 @@ export default function Perfil({ imagemBanner, imagemAvatar, dadosPastas = [] })
       <S.AreaConteudo>
         {abaAtiva === 'criados' ? (
           <S.CaixaVazia>
-            <S.BotaoCriar>Criar</S.BotaoCriar>
+            <S.ConteudoVazio>
+              <S.TextoVazio>
+                Sua arte pode ser o próximo Wallpapers favorito de alguém
+              </S.TextoVazio>
+              <S.BotaoCriar>Criar</S.BotaoCriar>
+            </S.ConteudoVazio>
           </S.CaixaVazia>
         ) : (
           <S.ContainerPastas>

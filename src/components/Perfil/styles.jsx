@@ -22,17 +22,20 @@ export const SecaoBanner = styled.div`
 
 export const ImagemBanner = styled.img`
   position: absolute;
-  inset: 0;
-  width: 100%;
+  left: 0;
+  top: 0;
+  width: 38%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.6;
+  object-position: left center;
+  opacity: 0.8;
+  filter: brightness(0.75) contrast(1.05);
 `;
 
 export const BannerPadrao = styled.div`
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, rgba(127, 29, 29, 0.4), rgba(120, 53, 15, 0.4), rgba(0, 0, 0, 0.8));
+  background: linear-gradient(to right, rgba(14, 13, 13, 0.4), rgba(17, 16, 15, 0.4), rgba(0, 0, 0, 0.8));
   opacity: 0.8;
 `;
 
@@ -165,29 +168,35 @@ export const ValorEstatistica = styled.div`
 export const BarraNavegacao = styled.div`
   width: 100%;
   max-width: 120rem;
-  margin: rem auto 0 auto;
+  margin: 0 auto;
   background-color: #2a2a2a;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 0.5rem;
   padding: 0.5rem 1rem;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: space-between;
   gap: 1rem;
   box-sizing: border-box;
 
   @media (max-width: 640px) {
     padding: 0.5rem;
-    flex-wrap: wrap;
-    justify-content: center;
+    grid-template-columns: 1fr;
+    justify-items: center;
   }
 `;
 
 export const ContainerAbas = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.9rem;
   flex-wrap: wrap;
+  grid-column: 2;
+
+  @media (max-width: 640px) {
+    grid-column: 1;
+  }
 `;
 
 export const BotaoAba = styled.button`
@@ -209,11 +218,14 @@ export const BotaoAba = styled.button`
 export const ContainerAcoes = styled.div`
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: 0.5rem;
+  grid-column: 3;
 
   @media (max-width: 640px) {
     width: 100%;
-    justify-content: flex-end;
+    justify-content: center;
+    grid-column: 1;
   }
 `;
 
@@ -251,6 +263,25 @@ export const CaixaVazia = styled.div`
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
+`;
+
+export const ConteudoVazio = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  text-align: center;
+  max-width: 32rem;
+  padding: 1rem;
+`;
+
+export const TextoVazio = styled.p`
+  margin: 0;
+  color: #f3f4f6;
+  font-size: 1.305rem;
+  line-height: 1.5;
+  text-align: center;
 `;
 
 export const BotaoCriar = styled.button`

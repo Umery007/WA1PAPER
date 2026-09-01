@@ -31,6 +31,11 @@ export function Ferramentas({ onClose }) {
     navigate("/cadastro");
   }
 
+  function handlePerfil() {
+    onClose();
+    navigate("/perfil");
+  }
+
   return (
     <Overlay>
       <Modal>
@@ -62,7 +67,7 @@ export function Ferramentas({ onClose }) {
                 Criar conta
               </ToolButton>
 
-              <ToolButton>
+              <ToolButton onClick={handlePerfil}>
                 Perfil
               </ToolButton>
             </CardContent>
