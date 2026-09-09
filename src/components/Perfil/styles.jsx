@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 export const Container = styled.div`
   min-height: 100vh;
@@ -12,7 +12,7 @@ export const Container = styled.div`
 export const SecaoBanner = styled.div`
   position: relative;
   width: 100%;
-  height: 280px;
+  height: 230px;
   background-color: #000000;
   overflow: hidden;
   display: flex;
@@ -246,9 +246,9 @@ export const BotaoIcone = styled.button`
 export const AreaConteudo = styled.div`
   flex: 1;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  padding: 1.5rem;
+  padding: 3.125rem 2rem 2rem;
   box-sizing: border-box;
 `;
 
@@ -300,88 +300,4 @@ export const BotaoCriar = styled.button`
   }
 `;
 
-/* --- ESTILOS DAS PASTAS --- */
 
-export const ContainerPastas = styled.div`
-  width: 100%;
-  max-width: 56rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 1.5rem;
-  box-sizing: border-box;
-`;
-
-const estiloBaseCartaoPasta = css`
-  background-color: #141414;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 0.75rem;
-  overflow: hidden;
-  cursor: pointer;
-  transition: transform 0.2s, border-color 0.2s;
-
-  &:hover {
-    transform: translateY(-4px);
-    border-color: rgba(255, 255, 255, 0.3);
-  }
-`;
-
-export const CartaoPasta = styled.div`
-  ${estiloBaseCartaoPasta}
-`;
-
-export const CartaoCriarPasta = styled.div`
-  ${estiloBaseCartaoPasta}
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 190px;
-  border: 2px dashed rgba(255, 255, 255, 0.2);
-  background-color: transparent;
-  color: #9ca3af;
-  gap: 0.5rem;
-
-  &:hover {
-    border-color: rgba(255, 255, 255, 0.5);
-    color: #ffffff;
-  }
-
-  span {
-    font-size: 0.875rem;
-    font-weight: 500;
-  }
-`;
-
-export const VisualizacaoPasta = styled.div`
-  width: 100%;
-  height: 90px;
-  background-color: rgba(255, 255, 255, 0.03);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-`;
-
-export const InfoPasta = styled.div`
-  padding: 0.75rem 1rem;
-`;
-
-export const TituloPasta = styled.h3`
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: #ffffff;
-  margin: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-`;
-
-export const ContadorPasta = styled.span`
-  font-size: 0.75rem;
-  color: #9ca3af;
-`;

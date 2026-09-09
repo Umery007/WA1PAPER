@@ -1,13 +1,24 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, Pencil, Maximize2, Minimize2, Folder } from 'lucide-react';
+import { ArrowLeft, Pencil, Maximize2, Minimize2 } from 'lucide-react';
 import imagemPadraoBanner from '../../assets/perfil/pages.png';
+import imagemPasta from '../../assets/img-cards/paper.jpeg';
+import Pasta, { GridPastas, LinhaPastas } from '../Pasta';
 import * as S from './styles';
+
+const pastasPadrao = [
+  { id: 1, largura: 480, titulo: 'Pasta NANA', quantidadeItens: 120, imagemCapa: imagemPasta },
+  { id: 2, largura: 480, titulo: 'Pasta NANA', quantidadeItens: 120, imagemCapa: imagemPasta },
+  { id: 3, largura: 365, compacto: true, titulo: 'Pasta NANA', quantidadeItens: 120, imagemCapa: imagemPasta },
+  { id: 4, largura: 365, compacto: true, titulo: 'Pasta NANA', quantidadeItens: 120, imagemCapa: imagemPasta },
+  { id: 5, largura: 480, titulo: 'Pasta NANA', quantidadeItens: 120, imagemCapa: imagemPasta },
+  { id: 6, largura: 480, titulo: 'Pasta NANA', quantidadeItens: 120, imagemCapa: imagemPasta },
+];
 
 export default function Perfil({
   imagemBanner = imagemPadraoBanner,
   imagemAvatar,
-  dadosPastas = []
+  dadosPastas = pastasPadrao
 }) {
   const [abaAtiva, setAbaAtiva] = useState('criados');
   const navigate = useNavigate();
@@ -98,29 +109,21 @@ export default function Perfil({
             </S.ConteudoVazio>
           </S.CaixaVazia>
         ) : (
-          <S.ContainerPastas>
+          <GridPastas>
             {dadosPastas.length > 0 ? (
-              dadosPastas.map((pasta, index) => (
-                <S.CartaoPasta key={pasta.id || index}>
-                  <S.VisualizacaoPasta>
-                    {pasta.imagemCapa ? (
-                      <img src={pasta.imagemCapa} alt={pasta.titulo} />
-                    ) : (
-                      <Folder size={40} color="#9ca3af" />
-                    )}
-                  </S.VisualizacaoPasta>
-                  <S.InfoPasta>
-                    <S.TituloPasta>{pasta.titulo || 'Sem título'}</S.TituloPasta>
-                    <S.ContadorPasta>{pasta.quantidadeItens || 0} itens</S.ContadorPasta>
-                  </S.InfoPasta>
-                </S.CartaoPasta>
+              [dadosPastas.slice(0, 3), dadosPastas.slice(3, 6)].map((linha, linhaIndex) => (
+                <LinhaPastas key={linhaIndex}>
+                  {linha.map((pasta, index) => (
+                    <Pasta key={pasta.id || index} {...pasta} />
+                  ))}
+                </LinhaPastas>
               ))
             ) : (
               <S.CaixaVazia style={{ gridColumn: '1 / -1' }}>
                 <p style={{ color: '#9ca3af' }}>Nenhuma pasta encontrada.</p>
               </S.CaixaVazia>
             )}
-          </S.ContainerPastas>
+          </GridPastas>
         )}
       </S.AreaConteudo>
     </S.Container>

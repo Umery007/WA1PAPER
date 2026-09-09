@@ -50,7 +50,7 @@ export const TopBar = styled.div`
   width: 100%;
   height: 70px;
 
-  background: #ffffff;
+  background: C#ffffff;
 
   border-radius: 22px 22px 0 0;
 
