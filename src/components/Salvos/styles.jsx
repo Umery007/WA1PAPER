@@ -107,3 +107,5 @@ export function ImageGrid({ images = imagensDemo }) {
 export default function Salvos({ imagens = imagensDemo }) {
   return <ImageGrid images={imagens} />;
 }
+
+
