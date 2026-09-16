@@ -245,9 +245,9 @@ export const ContainerAcoes = styled.div`
 export const BotaoIcone = styled.button`
   padding: 0.375rem;
   border-radius: 0.375rem;
-  background-color: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #d1d5db;
+  background-color: ${(props) => (props.$ativo ? 'rgba(255, 255, 255, 0.2)' : 'rgba(255, 255, 255, 0.05)')};
+  border: 1px solid ${(props) => (props.$ativo ? 'rgba(255, 255, 255, 0.4)' : 'rgba(255, 255, 255, 0.1)')};
+  color: ${(props) => (props.$ativo ? '#ffffff' : '#d1d5db')};
   cursor: pointer;
   transition: background-color 0.2s;
 

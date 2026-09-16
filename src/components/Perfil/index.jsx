@@ -4,7 +4,8 @@ import { ArrowLeft, Pencil, Maximize2, Minimize2 } from 'lucide-react';
 import imagemPadraoBanner from '../../assets/perfil/pages.png';
 import imagemPasta from '../../assets/img-cards/paper.jpeg';
 import Pasta, { GridPastas, LinhaPastas } from '../Pasta';
-import Salvos from '../Salvos';
+import Salvos from '../Salvos-ampliar';
+import SalvosEncolher from '../Salvos-encolher';
 import * as S from './styles';
 
 const pastasPadrao = [
@@ -20,9 +21,11 @@ export default function Perfil({
   imagemBanner = imagemPadraoBanner,
   imagemAvatar,
   dadosPastas = pastasPadrao,
-  mostrarSalvos = false
+  mostrarSalvos = false,
+  salvosAmpliadoInicial = false
 }) {
   const [abaAtiva, setAbaAtiva] = useState('pastas');
+  const [salvosAmpliado, setSalvosAmpliado] = useState(salvosAmpliadoInicial);
   const navigate = useNavigate();
 
   return (
@@ -95,10 +98,22 @@ export default function Perfil({
         )}
 
         <S.ContainerAcoes>
-          <S.BotaoIcone aria-label="Expandir">
+          <S.BotaoIcone
+            type="button"
+            aria-label="Expandir"
+            aria-pressed={salvosAmpliado}
+            $ativo={salvosAmpliado}
+            onClick={() => setSalvosAmpliado(true)}
+          >
             <Maximize2 size={16} />
           </S.BotaoIcone>
-          <S.BotaoIcone aria-label="Reduzir">
+          <S.BotaoIcone
+            type="button"
+            aria-label="Reduzir"
+            aria-pressed={!salvosAmpliado}
+            $ativo={!salvosAmpliado}
+            onClick={() => setSalvosAmpliado(false)}
+          >
             <Minimize2 size={16} />
           </S.BotaoIcone>
         </S.ContainerAcoes>
@@ -106,7 +121,7 @@ export default function Perfil({
 
       <S.AreaConteudo>
         {mostrarSalvos && abaAtiva === 'pastas' ? (
-          <Salvos />
+          salvosAmpliado ? <Salvos /> : <SalvosEncolher />
         ) : abaAtiva === 'criados' ? (
           <S.CaixaVazia>
             <S.ConteudoVazio>

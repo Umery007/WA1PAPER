@@ -14,7 +14,7 @@ export const Wrapper = styled.section`
   background:
     radial-gradient(
       circle at top,
-      rgba(255, 255, 255, 0.08),
+      rgba(255, 255, 255, 0.8),
       transparent 35%
     ),
     linear-gradient(180deg, #050507 0%, #0d0d12 100%);
@@ -219,7 +219,7 @@ export const NomeInput = styled.input`
 
   box-sizing: border-box;
 
-  background: rgba(255, 248, 248, 0.2);
+  background: rgba(255, 248, 248, 0.91);
 
   border: 2px solid #ffffff;
   border-radius: 15px;

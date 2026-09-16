@@ -15,6 +15,7 @@ function Router() {
         <Route path="/cadastro" element={<Cadastrar />} />
         <Route path="/perfil" element={<Perfil />} />
         <Route path="/salvos" element={<Perfil mostrarSalvos />} />
+        <Route path="/Salvos-encolher" element={<Perfil mostrarSalvos salvosAmpliadoInicial={false} />} />
       </Routes>
     </BrowserRouter>
   );

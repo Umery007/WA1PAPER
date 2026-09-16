@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
 export const CardContainer = styled.div`
-	width: 420px;
+	width: min(100%, 520px);
     height: 100%;
+	box-sizing: border-box;
 	border-radius: 18px;
 	padding: 9px;
 	background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
@@ -16,12 +17,17 @@ export const CardContainer = styled.div`
 `;
 
 export const CardsWrapper = styled.div`
-	width: min(1350px, 95%);
+	width: min(1600px, 95%);
 	margin: 40px auto;
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
 	gap: 52px;
 	justify-items: center;
+
+	@media (max-width: 520px) {
+		grid-template-columns: 1fr;
+		gap: 28px;
+	}
 `;
 
 export const TopBar = styled.div`
@@ -74,7 +80,7 @@ export const HeartButton = styled.button`
 export const ImageWrapper = styled.div`
 	position: relative;
 	width: 100%;
-	height: 180px;
+	height: 260px;
 	border-radius: 14px;
 	overflow: hidden;
 	border-radius: 14px;
@@ -82,6 +88,10 @@ export const ImageWrapper = styled.div`
 	border: 1px solid rgba(255,255,255,0.03);
 	background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
 	backdrop-filter: blur(6px);
+
+	@media (max-width: 520px) {
+		height: 220px;
+	}
 `;
 
 export const Image = styled.img`

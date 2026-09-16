@@ -1,4 +1,3 @@
-import { useLayoutEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import imagemPaper from '../../assets/img-cards/paper.jpeg';
 
@@ -9,25 +8,58 @@ import imagemPaper from '../../assets/img-cards/paper.jpeg';
 export const GaleriaSalvos = styled.div`
   width: 100%;
   min-height: 520px;
-  display: grid;
-  /* Largura mínima das colunas ajustada para preencher a tela como no layout original */
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  grid-auto-rows: 10px;
-  gap: 6px;
+  column-count: 8;
+  column-gap: 10px;
   padding: 10px;
   box-sizing: border-box;
   background: #202020;
 
+  @media (max-width: 1100px) {
+    column-count: 6;
+  }
+
+  @media (max-width: 800px) {
+    column-count: 4;
+  }
+
   @media (max-width: 520px) {
-    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    column-count: 2;
+    column-gap: 8px;
   }
 `;
 
 export const ItemSalvo = styled.div`
-  min-width: 0;
+  break-inside: avoid;
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 10px;
   overflow: hidden;
   border-radius: 4px;
   background: #111;
+  animation: entradaCard 0.5s ease both;
+  animation-delay: calc(var(--card-index, 0) * 35ms);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-4px) scale(1.015);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.45);
+  }
+
+  @keyframes entradaCard {
+    from {
+      opacity: 0;
+      transform: translateY(14px) scale(0.98);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
 `;
 
 export const ImagemSalva = styled.img`
@@ -37,17 +69,20 @@ export const ImagemSalva = styled.img`
   aspect-ratio: ${(props) => props.$proporcao || 1};
   object-fit: cover;
   border-radius: 4px;
+  transform: ${(props) => (props.$invertida ? 'rotate(180deg)' : 'none')};
+  transition: transform 0.3s ease;
 `;
 
 // ==========================================
 // DADOS DE DEMONSTRAÇÃO
 // ==========================================
 
-const imagensDemo = Array.from({ length: 30 }, (_, index) => ({
+const imagensDemo = Array.from({ length: 60 }, (_, index) => ({
   id: index + 1,
   url: imagemPaper,
   alt: `Wallpaper salvo ${index + 1}`,
   proporcao: [0.72, 1.28, 1.65, 0.86, 1.45, 0.98][index % 6],
+  invertida: index % 2 === 0,
 }));
 
 // ==========================================
@@ -55,41 +90,14 @@ const imagensDemo = Array.from({ length: 30 }, (_, index) => ({
 // ==========================================
 
 export function GridCard({ image }) {
-  const cardRef = useRef(null);
-  const [spans, setSpans] = useState(10);
-
-  const measureImage = () => {
-    if (!cardRef.current) return;
-
-    // Mede a altura real do conteúdo
-    const height = cardRef.current.getBoundingClientRect().height;
-    const rowHeight = 10;
-    const rowGap = 6;
-
-    // Calcula as linhas necessárias incluindo o gap
-    const rowSpan = Math.ceil((height + rowGap) / (rowHeight + rowGap));
-    setSpans(rowSpan);
-  };
-
-  useLayoutEffect(() => {
-    measureImage();
-
-    const observer = new ResizeObserver(measureImage);
-    if (cardRef.current) observer.observe(cardRef.current);
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <ItemSalvo style={{ gridRowEnd: `span ${spans}` }}>
-      <div ref={cardRef}>
-        <ImagemSalva
-          src={image.url}
-          alt={image.alt}
-          $proporcao={image.proporcao}
-          onLoad={measureImage}
-        />
-      </div>
+    <ItemSalvo>
+      <ImagemSalva
+        src={image.url}
+        alt={image.alt}
+        $proporcao={image.proporcao}
+        $invertida={image.invertida}
+      />
     </ItemSalvo>
   );
 }
