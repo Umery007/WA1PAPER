@@ -5,6 +5,8 @@ import Criarconta from "./components/Criarconta";
 import Alterarsenha from "./components/Alterarsenha";
 import Cadastrar from "./components/Cadastrar";
 import Perfil from "./components/Perfil";
+import Baixados from "./components/Baixados";
+import Favoritados from "./components/Favoritados";
 function Router() {
   return (
     <BrowserRouter>
@@ -16,6 +18,8 @@ function Router() {
         <Route path="/perfil" element={<Perfil />} />
         <Route path="/salvos" element={<Perfil mostrarSalvos />} />
         <Route path="/Salvos-encolher" element={<Perfil mostrarSalvos salvosAmpliadoInicial={false} />} />
+        <Route path="/baixados" element={<Baixados />} />
+        <Route path="/favoritados" element={<Favoritados />} />
       </Routes>
     </BrowserRouter>
   );

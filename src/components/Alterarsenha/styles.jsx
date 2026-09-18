@@ -90,11 +90,13 @@ export const CloseButton = styled.button`
 
   transform: translateY(-50%);
 
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
 
-  background: transparent;
-  border: none;
+  background: rgba(20, 20, 20, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  color: #ffffff;
 
   cursor: pointer;
   padding: 0;
@@ -105,12 +107,13 @@ export const CloseButton = styled.button`
   transition: transform 0.2s ease;
 
   &:hover {
-    transform: translateY(-50%) scale(1.1);
+    transform: translateY(-50%) scale(1.05);
+    background: rgba(45, 45, 45, 0.9);
   }
 
   @media (max-width: 480px) {
-    width: 24px;
-    height: 24px;
+    width: 36px;
+    height: 36px;
     right: 12px;
   }
 `;

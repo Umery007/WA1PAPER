@@ -36,6 +36,16 @@ export function Ferramentas({ onClose }) {
     navigate("/perfil");
   }
 
+  function handleBaixados() {
+    onClose();
+    navigate("/baixados");
+  }
+
+  function handleFavoritados() {
+    onClose();
+    navigate("/favoritados");
+  }
+
   return (
     <Overlay>
       <Modal>
@@ -79,11 +89,11 @@ export function Ferramentas({ onClose }) {
             <CardTitle>Wallpapers</CardTitle>
 
             <CardContent>
-              <ToolButton>
+              <ToolButton onClick={handleBaixados}>
                 Baixados
               </ToolButton>
 
-              <ToolButton>
+              <ToolButton onClick={handleFavoritados}>
                 Favoritos
               </ToolButton>
 
