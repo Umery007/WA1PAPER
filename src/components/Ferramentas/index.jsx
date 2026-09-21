@@ -98,11 +98,11 @@ export function Ferramentas({ onClose }) {
               </ToolButton>
 
               <ToolButton>
-                Criados
+                Explorar Comunidades
               </ToolButton>
 
-              <ToolButton>
-                Pastas
+              <ToolButton onClick={handleAlterarSenha}>
+                Alterar senha 
               </ToolButton>
             </CardContent>
           </Card>
@@ -113,8 +113,8 @@ export function Ferramentas({ onClose }) {
             <CardTitle>Segurança</CardTitle>
 
             <CardContent>
-              <ToolButton onClick={handleAlterarSenha}>
-                Alterar senha
+              <ToolButton >
+                Dispositivos Conectados
               </ToolButton>
 
               <ToolButton>
