@@ -1,23 +1,23 @@
 import { useState } from "react";
 import {
+  FiMaximize,
   FiMaximize2,
   FiMessageCircle,
-  FiMinimize2,
   FiX,
 } from "react-icons/fi";
 import Prompt from "../Prompt";
+import TelaCheia from "../Tela-cheia";
 import {
   ChatWindow,
   CloseButton,
-  HeaderActions,
-  HeaderButton,
-  WindowIcon,
   MessageActions,
   Launcher,
   Message,
   Messages,
   MessageIcon,
   Header,
+  HeaderActions,
+  HeaderButton,
   Subtitle,
   Title,
   LauncherHint,
@@ -26,6 +26,7 @@ import {
 export default function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isFullScreen, setIsFullScreen] = useState(false);
   const [message, setMessage] = useState("");
 
   function handleSubmit(event) {
@@ -35,25 +36,26 @@ export default function Chatbot() {
 
   return (
     <>
-      {isOpen && (
+      {isOpen && !isFullScreen && (
         <ChatWindow $isExpanded={isExpanded} aria-label="Conversa com o Toc Toc">
           <Header>
             <div>
               <Title>Oi seja bem vindo!</Title>
               <Subtitle>LogoMarca está online para ajudar</Subtitle>
             </div>
-            <div>
+            <HeaderActions>
               <CloseButton
                 type="button"
                 aria-label="Fechar conversa"
                 onClick={() => {
                   setIsOpen(false);
                   setIsExpanded(false);
+                  setIsFullScreen(false);
                 }}
               >
                 <FiX />
               </CloseButton>
-            </div>
+            </HeaderActions>
           </Header>
 
           <Messages>
@@ -62,26 +64,24 @@ export default function Chatbot() {
 </Message>
             <Message>Você poderia me dizer seu nome?</Message>
             <MessageActions aria-label="Controles de tamanho">
-              {isExpanded && (
-                <HeaderActions>
-                  <HeaderButton
-                    type="button"
-                    aria-label="Ampliar janela"
-                    title="Ampliar"
-                    onClick={() => setIsExpanded(true)}
-                  >
-                    <WindowIcon $variant="corners" aria-hidden="true" />
-                  </HeaderButton>
-                </HeaderActions>
-              )}
               <MessageIcon
                 type="button"
                 aria-label={isExpanded ? "Reduzir conversa" : "Ampliar conversa"}
                 title={isExpanded ? "Reduzir conversa" : "Ampliar conversa"}
                 onClick={() => setIsExpanded((expanded) => !expanded)}
               >
-                {isExpanded ? <FiMinimize2 /> : <FiMaximize2 />}
+                <FiMaximize2 />
               </MessageIcon>
+              {isExpanded && (
+                <MessageIcon
+                  type="button"
+                  aria-label="Abrir tela cheia"
+                  title="Abrir tela cheia"
+                  onClick={() => setIsFullScreen(true)}
+                >
+                  <FiMaximize />
+                </MessageIcon>
+              )}
             </MessageActions>
             <small>Ex: João</small>
           </Messages>
@@ -93,6 +93,10 @@ export default function Chatbot() {
             placeholder="Crie seu wallpaper"
           />
         </ChatWindow>
+      )}
+
+      {isOpen && isFullScreen && (
+        <TelaCheia onClose={() => setIsFullScreen(false)} />
       )}
 
       {!isOpen && (

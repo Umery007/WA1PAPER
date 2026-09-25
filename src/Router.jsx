@@ -7,6 +7,7 @@ import Cadastrar from "./components/Cadastrar";
 import Perfil from "./components/Perfil";
 import Baixados from "./components/Baixados";
 import Favoritados from "./components/Favoritados";
+import Comunidade from "./components/Comunidade";
 function Router() {
   return (
     <BrowserRouter>
@@ -20,6 +21,7 @@ function Router() {
         <Route path="/Salvos-encolher" element={<Perfil mostrarSalvos salvosAmpliadoInicial={false} />} />
         <Route path="/baixados" element={<Baixados />} />
         <Route path="/favoritados" element={<Favoritados />} />
+        <Route path="/comunidade" element={<Comunidade />} />
       </Routes>
     </BrowserRouter>
   );

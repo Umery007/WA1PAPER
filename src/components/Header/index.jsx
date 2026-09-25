@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   FiMessageSquare,
   FiBell,
@@ -5,6 +6,7 @@ import {
   FiUser,
 } from "react-icons/fi";
 
+import Mensagens from "../Mensagens";
 import {
   Container,
   TopBar,
@@ -17,6 +19,8 @@ import {
 } from "./styles";
 
 export default function Header({ onOpenFerramentas }) {
+  const [isMessagesOpen, setIsMessagesOpen] = useState(false);
+
   return (
     <Container>
 
@@ -28,10 +32,16 @@ export default function Header({ onOpenFerramentas }) {
 
         <Menu>
 
-          <a href="#">
+          <button
+            type="button"
+            className="messages-trigger"
+            aria-controls="messages-panel"
+            aria-expanded={isMessagesOpen}
+            onClick={() => setIsMessagesOpen(true)}
+          >
             <FiMessageSquare />
-            Mensagens
-          </a>
+            <span>Mensagens</span>
+          </button>
 
           <a href="#">
             <FiBell />
@@ -82,6 +92,11 @@ export default function Header({ onOpenFerramentas }) {
 
       </SearchArea>
 
+      {isMessagesOpen && (
+        <Mensagens
+          onClose={() => setIsMessagesOpen(false)}
+        />
+      )}
     </Container>
   );
 }

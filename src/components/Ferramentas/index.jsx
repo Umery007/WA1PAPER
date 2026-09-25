@@ -46,6 +46,11 @@ export function Ferramentas({ onClose }) {
     navigate("/favoritados");
   }
 
+  function handleComunidades() {
+    onClose();
+    navigate("/comunidade");
+  }
+
   return (
     <Overlay>
       <Modal>
@@ -97,7 +102,7 @@ export function Ferramentas({ onClose }) {
                 Favoritos
               </ToolButton>
 
-              <ToolButton>
+              <ToolButton onClick={handleComunidades}>
                 Explorar Comunidades
               </ToolButton>
 

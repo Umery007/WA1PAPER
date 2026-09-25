@@ -53,6 +53,30 @@ text-decoration:none;
 font-size:18px;
 }
 
+.messages-trigger {
+    width: auto;
+    height: auto;
+    min-width: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    color: white;
+    font-size: 18px;
+    gap: 8px;
+}
+
+.messages-trigger:hover,
+.messages-trigger[aria-expanded="true"] {
+    background: transparent;
+}
+
+.messages-trigger:focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.7);
+    outline-offset: 4px;
+}
+
 button{
 
 width:48px;

@@ -39,7 +39,7 @@ export function Card({ image, tags = [], liked = false, onDownload }) {
           <HeartButton
             aria-pressed={isLiked}
             title={isLiked ? "Favorito" : "Curtir"}
-            active={isLiked}
+            $active={isLiked}
             onClick={toggleLike}
           >
             {isLiked ? (
@@ -71,7 +71,7 @@ export default function Cards() {
     { id: 5, tags: ["Minimal", "Dark"], liked: false, image: sample },
     { id: 6, tags: ["Travel", "Aesthetic"], liked: true, image: sample },
     { id: 7, tags: ["Abstract", "3D"], liked: false, image: sample },
-    { id: 8, tags: ["Studio", "UI"], liked: false, image: sample },
+    { id: 9, tags: ["Studio", "UI"], liked: false, image: sample },
     { id: 8, tags: ["Studio", "UI"], liked: false, image: sample },
   ];
 

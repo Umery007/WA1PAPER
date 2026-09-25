@@ -218,7 +218,7 @@ export const ActionButton = styled.button`
 
   background: ${props =>
 
-    props.primary
+    props.$primary
 
     ? "linear-gradient(90deg,#ff0000,#ff3434)"
 
@@ -236,7 +236,7 @@ export const ActionButton = styled.button`
 
   box-shadow: ${props =>
 
-    props.primary
+    props.$primary
 
     ? "0 0 25px rgba(255,0,0,.35)"
 

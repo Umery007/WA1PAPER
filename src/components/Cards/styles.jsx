@@ -64,16 +64,16 @@ export const HeartButton = styled.button`
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	background: ${props => (props.active ? "linear-gradient(180deg,#3b0000,#4f0000)" : "linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02))")};
-	color: ${props => (props.active ? "#ffb7b7" : "#fff")};
-	border: 1px solid ${props => (props.active ? "rgba(255,77,85,0.6)" : "rgba(255,255,255,0.08)")};
+	background: ${props => (props.$active ? "linear-gradient(180deg,#3b0000,#4f0000)" : "linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02))")};
+	color: ${props => (props.$active ? "#ffb7b7" : "#fff")};
+	border: 1px solid ${props => (props.$active ? "rgba(255,77,85,0.6)" : "rgba(255,255,255,0.08)")};
 	cursor: pointer;
 	backdrop-filter: blur(4px);
 
 	svg path {
 		transition: fill .18s ease, stroke .18s ease;
-		fill: ${props => (props.active ? "#ff4d55" : "none")};
-		stroke: ${props => (props.active ? "#ff4d55" : "#fff")};
+		fill: ${props => (props.$active ? "#ff4d55" : "none")};
+		stroke: ${props => (props.$active ? "#ff4d55" : "#fff")};
 	}
 `;
 

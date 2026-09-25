@@ -154,7 +154,7 @@ export default function Banner() {
 
       <Buttons>
 
-        <ActionButton primary>🏆 Seja VIP</ActionButton>
+        <ActionButton $primary>🏆 Seja VIP</ActionButton>
 
         <ActionButton>Saiba Mais</ActionButton>
 

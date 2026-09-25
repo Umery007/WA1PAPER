@@ -1,4 +1,4 @@
-import { FiEye, FiMic, FiPlus, FiSend } from "react-icons/fi";
+ import { FiEye, FiMic, FiPlus, FiSend } from "react-icons/fi";
 import {
   ActionButton,
   PromptBar,
